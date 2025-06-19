@@ -1,0 +1,9 @@
+Goroutine 3 - dòng log 1
+Goroutine 2 - dòng log 1
+Goroutine 1 - dòng log 1
+Goroutine 1 - dòng log 2
+Goroutine 3 - dòng log 2
+Goroutine 2 - dòng log 2
+Goroutine 2 - dòng log 3
+Goroutine 1 - dòng log 3
+Goroutine 3 - dòng log 3
