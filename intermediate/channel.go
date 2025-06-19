@@ -8,17 +8,35 @@ import (
 
 func saveOrder(resultCh chan string, errCh chan error) {
 	time.Sleep(1 * time.Second)
-	resultCh <- "✅ Đã lưu đơn hàng vào DB"
+	success := true
+
+	if success {
+		resultCh <- "✅ Đã lưu đơn hàng thành công"
+	} else {
+		errCh <- errors.New("🚫 Lỗi khi lưu đơn hàng")
+	}
 }
 
 func callShippingAPI(resultCh chan string, errCh chan error) {
 	time.Sleep(2 * time.Second)
-	errCh <- errors.New("🚫 Lỗi khi gọi API vận chuyển")
+	success := true
+
+	if success {
+		resultCh <- "✅ Đã gọi API vận chuyển thành công"
+	} else {
+		errCh <- errors.New("🚫 Lỗi khi gọi API vận chuyển")
+	}
 }
 
 func sendEmail(resultCh chan string, errCh chan error) {
 	time.Sleep(1 * time.Second)
-	resultCh <- "📧 Đã gửi email xác nhận"
+	success := true
+
+	if success {
+		resultCh <- "📧 Đã gửi email xác nhận"
+	} else {
+		errCh <- errors.New("🚫 Lỗi khi gởi email xác nhận")
+	}
 }
 
 func RunChannel() {
