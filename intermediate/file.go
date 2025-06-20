@@ -3,6 +3,7 @@ package intermediate
 import (
 	"bufio"
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"os"
 	"sync"
@@ -24,11 +25,10 @@ func WriteFile() {
 	fmt.Println("✅ Ghi file thành công")
 }
 
-func ReadFile() {
+func ReadFile() error {
 	file, err := os.Open("intermediate/donhang.txt")
 	if err != nil {
-		fmt.Println("❌ Không mở được file:", err)
-		return
+		return fmt.Errorf("không thể mở file: %w", err) // wrap lại lỗi gốc
 	}
 	defer file.Close()
 
@@ -40,6 +40,18 @@ func ReadFile() {
 
 	if err := scanner.Err(); err != nil {
 		fmt.Println("❌ Lỗi khi đọc file:", err)
+		return fmt.Errorf("lỗi khi đọc file: %w", err)
+	}
+
+	return nil
+}
+
+func CheckFile() {
+	err := ReadFile()
+	if errors.Is(err, os.ErrNotExist) {
+		fmt.Println("File không tồn tại.")
+	} else if err != nil {
+		fmt.Println("Lỗi khác:", err)
 	}
 }
 

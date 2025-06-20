@@ -24,4 +24,7 @@ func main() {
 	// intermediate.ReadFile()
 	// intermediate.WriteCsv()
 	intermediate.LogGoRoutine()
+	intermediate.RunCustomer()
+	intermediate.RunProduct()
+	intermediate.RunOrder()
 }
