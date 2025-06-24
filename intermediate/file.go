@@ -48,7 +48,11 @@ func ReadFile() error {
 
 func CheckFile() {
 	err := ReadFile()
-	if errors.Is(err, os.ErrNotExist) {
+	var pathErr *os.PathError
+
+	if errors.As(err, &pathErr) {
+		fmt.Println("Lỗi liên quan tới đường dẫn file:", pathErr.Path)
+	} else if errors.Is(err, os.ErrNotExist) {
 		fmt.Println("File không tồn tại.")
 	} else if err != nil {
 		fmt.Println("Lỗi khác:", err)
