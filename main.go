@@ -4,7 +4,8 @@ import (
 	// "github.com/gin-gonic/gin"
 	// "go_start/basic"
 	// "go_start/controllers"
-	"go_start/intermediate"
+	// "go_start/intermediate"
+	"go_start/practice"
 )
 
 func main() {
@@ -27,7 +28,8 @@ func main() {
 	// intermediate.RunCustomer()
 	// intermediate.RunProduct()
 	// intermediate.RunOrder()
-	intermediate.InfoProduct()
-	intermediate.InfoOrder()
-	intermediate.InOrder()
+	// intermediate.InfoProduct()
+	// intermediate.InfoOrder()
+	// intermediate.InOrder()
+	practice.RunPractice()
 }

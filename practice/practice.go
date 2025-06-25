@@ -110,7 +110,7 @@ func increment(x *int) {
 	*x += 1
 }
 
-func main() {
+func RunPractice() {
 	fmt.Println("=== Hello World ===")
 	helloWorld()
 
